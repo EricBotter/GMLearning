@@ -5,6 +5,12 @@ public class Course {
 	private String _number;
 	private String _description;
 	
+	public Course(String name, String number, String description) {
+		_name = name;
+		_number = number;
+		_description = description;
+	}
+
 	public String getName() {
 		return _name;
 	}
