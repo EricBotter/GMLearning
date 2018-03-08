@@ -10,6 +10,12 @@ public class SimpleQueue<T> implements Queue<T> {
 		_array.add(item);
 		_currentTop++;
 	}
+	
+	@Override
+	public void enqueueMany(T[] items) {
+		_array.addAll(_array);
+		_currentTop += items.length;
+	}
 
 	@Override
 	public T dequeue() {

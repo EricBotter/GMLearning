@@ -12,6 +12,14 @@ public class MonitorableQueue<T> implements Queue<T> {
 			_highWaterMark = _currentSize;
 		_queue.enqueue(item);
 	}
+	
+	@Override
+	public void enqueueMany(T[] items) {
+		_currentSize += items.length;
+		if (_currentSize > _highWaterMark)
+			_highWaterMark = _currentSize;
+		_queue.enqueueMany(items);
+	}
 
 	@Override
 	public T dequeue() {
@@ -32,4 +40,7 @@ public class MonitorableQueue<T> implements Queue<T> {
 		return _queue.isEmpty();
 	}
 
+	public int currentMax() {
+		return _highWaterMark;
+	}
 }
