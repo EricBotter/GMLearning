@@ -8,22 +8,6 @@ public class SeminarDetails {
     public SeminarDetails(Seminar seminar) {
         _seminar = seminar;
     }
-
-    public void printBasic() {
-    	String toPrint = "Name: " + _seminar.getName() + "\n"
-    			+ "Description: " + _seminar.getDescription() + "\n"
-    			+ "Location: " + _seminar.getLocation() + "\n"
-    			+ "Seats left: " + _seminar.getSeatsLeft() + "\n"
-    			+ "Enrolled students: ";
-        for (int i = 0; i < _seminar.getStudentList().size() - 1; i++) {
-        	Student student = _seminar.getStudentList().get(i);
-        	toPrint += student.getFullName() + ", ";
-        }
-        toPrint += _seminar.getStudentList()
-        		.get(_seminar.getStudentList().size() - 1)
-        		.getFullName();
-        System.out.println(toPrint);
-    }
     
     public void printHtml() {
     	String html = "<html>\n<head>\n\t<title>" + _seminar.getName() + "</title>\n"
@@ -67,8 +51,9 @@ public class SeminarDetails {
 
         SeminarDetails details = new SeminarDetails(seminar);
 		
-        details.printBasic();
-        details.printHtml();
+        new BasicStatement().output(details._seminar);
+        new HtmlStatement().output(details._seminar);
+//        new CsvStatement().output(details._seminar);
         
 	}
 
