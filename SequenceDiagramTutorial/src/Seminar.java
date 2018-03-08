@@ -15,18 +15,6 @@ public class Seminar {
 		_enrollments = new ArrayList<Enrollment>();
 	}
 
-    public String getInfo() {
-        String output = "Name: " + _course.getName() + "\n" +
-            "Description: " + _course.getDescription() + "\n" +
-            "Location: " + _location + "\n" +
-            "Seats left: " + _seatsLeft + "\n" +
-            "Enrolled students: ";
-        for (Enrollment e : _enrollments) {
-            output += e.getInfo() + "; ";
-        }
-        return output;
-    }
-
 	public String getName() {
 		return _course.getName() + " " + _course.getNumber();
 	}
@@ -39,8 +27,16 @@ public class Seminar {
 		return _location;
 	}
 
+	public void setLocation(String location) {
+		_location = location;
+	}
+
 	public int getSeatsLeft() {
 		return _seatsLeft;
+	}
+
+	public void setSeatsLeft(int seatsLeft) {
+		_seatsLeft = seatsLeft;
 	}
 
 	public List<String> getStudentList() {
