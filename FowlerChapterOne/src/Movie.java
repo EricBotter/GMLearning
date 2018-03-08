@@ -21,7 +21,7 @@ public class Movie {
 		_priceCode = arg;
 	}
 	
-	public String getTitle (){
+	public String getTitle() {
 		return _title;
 	};
 }
