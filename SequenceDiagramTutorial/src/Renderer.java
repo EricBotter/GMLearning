@@ -1,5 +1,5 @@
 
-public abstract class Statement {
+public abstract class Renderer {
 	public void output(Seminar seminar) {
     	String output = getHeader(seminar);
     	

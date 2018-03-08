@@ -1,14 +1,17 @@
+import java.util.GregorianCalendar;
 
 public class Course {
 
-	private String _name;
-	private String _number;
-	private String _description;
+	private final String _name;
+	private final String _number;
+	private final String _description;
+	private final GregorianCalendar _startDate;
 	
-	public Course(String name, String number, String description) {
+	public Course(String name, String number, String description, GregorianCalendar startDate) {
 		_name = name;
 		_number = number;
 		_description = description;
+		_startDate = startDate;
 	}
 
 	public String getName() {
@@ -21,5 +24,11 @@ public class Course {
 
 	public String getDescription() {
 		return _description;
-	}	
+	}
+	
+	public String getStartDate() {
+		return _startDate.get(GregorianCalendar.DAY_OF_MONTH) + "/"
+				+ _startDate.get(GregorianCalendar.MONTH) + "/"
+				+ _startDate.get(GregorianCalendar.YEAR);
+	}
 }

@@ -1,7 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CsvStatement extends Statement {
+public class CsvRenderer extends Renderer {
 
 	@Override
 	String getHeader(Seminar seminar) {
@@ -10,6 +10,7 @@ public class CsvStatement extends Statement {
     			seminar.getCourse().getName(),
     			seminar.getDescription(),
     			seminar.getLocation(),
+    			seminar.getCourse().getStartDate(),
     			String.valueOf(seminar.getSeatsLeft())
     	}) + "\n";
 	}
