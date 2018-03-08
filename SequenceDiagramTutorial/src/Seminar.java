@@ -4,17 +4,21 @@ import java.util.stream.Collectors;
 
 public class Seminar {
 
-	private Course _course;
-	private List<Enrollment> _enrollments;
+	private final Course _course;
+	private final List<Enrollment> _enrollments;
 
 	private String _location;
 	private int _seatsLeft;
 
 	public Seminar(Course course) {
 		_course = course;
-		_enrollments = new ArrayList<Enrollment>();
+		_enrollments = new ArrayList<>();
 	}
 
+	public Course getCourse() {
+		return _course;
+	}
+	
 	public String getName() {
 		return _course.getName() + " " + _course.getNumber();
 	}
@@ -39,10 +43,10 @@ public class Seminar {
 		_seatsLeft = seatsLeft;
 	}
 
-	public List<String> getStudentList() {
+	public List<Student> getStudentList() {
 		return _enrollments.stream()
 				.map(e -> {
-					return e.getInfo();
+					return e.getStudent();
 				})
 				.collect(Collectors.toList());
 	}

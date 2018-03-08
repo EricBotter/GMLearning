@@ -15,33 +15,40 @@ public class SeminarDetails {
     			+ "Location: " + _seminar.getLocation() + "\n"
     			+ "Seats left: " + _seminar.getSeatsLeft() + "\n"
     			+ "Enrolled students: ";
-        System.out.print(toPrint);
-        System.out.println(_seminar.getStudentList());
+        for (int i = 0; i < _seminar.getStudentList().size() - 1; i++) {
+        	Student student = _seminar.getStudentList().get(i);
+        	toPrint += student.getFullName() + ", ";
+        }
+        toPrint += _seminar.getStudentList()
+        		.get(_seminar.getStudentList().size() - 1)
+        		.getFullName();
+        System.out.println(toPrint);
     }
     
     public void printHtml() {
     	String html = "<html>\n<head>\n\t<title>" + _seminar.getName() + "</title>\n"
     			+ "</head>\n<body>\n"
-    			+ "\t<div>" + _seminar.getName() + "</div>\n\t<ul>\n"
+    			+ "\t<div>" + _seminar.getName() + ":</div>\n\t<ul>\n"
     			+ "\t\t<li>" + _seminar.getDescription() + "</li>\n"
     			+ "\t\t<li>" + _seminar.getLocation() + "</li>\n"
     			+ "\t\t<li>" + _seminar.getSeatsLeft() + "</li>\n"
     			+ "\t</ul>\n\t<div>partecipanti:</div>\n\t<ul>\n";
-    	for (String student : _seminar.getStudentList())
-    		html += "\t\t<li>" + student + "</li>\n";
+    	for (Student student : _seminar.getStudentList())
+    		html += "\t\t<li>" + student.getFullName() + "</li>\n";
     	html += "\t</ul>\n</body>\n</html>";
     	System.out.println(html);
     }
     
     public void saveToCsv() throws IOException {
     	String csv = String.join(";", new String[] {
-    			_seminar.getName(),
+    			_seminar.getCourse().getNumber(),
+    			_seminar.getCourse().getName(),
     			_seminar.getDescription(),
     			_seminar.getLocation(),
     			String.valueOf(_seminar.getSeatsLeft())
-    	});
-    	for (String student : _seminar.getStudentList())
-    		csv += student;
+    	}) + "\n";
+    	for (Student student : _seminar.getStudentList())
+    		csv += student.getName() + ";" + student.getSurname() + "\n";
     	
     	FileWriter fw = new FileWriter(_seminar.getName() + ".csv");
     	fw.write(csv);
@@ -61,6 +68,8 @@ public class SeminarDetails {
         SeminarDetails details = new SeminarDetails(seminar);
 		
         details.printBasic();
+        details.printHtml();
+        
 	}
 
 }

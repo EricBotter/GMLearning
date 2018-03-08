@@ -1,13 +1,17 @@
 
 public class Enrollment {
 
-	private Student _student;
+	private final Student _student;
 	
 	public Enrollment(Student student) {
 		this._student = student;
 	}
 
 	public String getInfo() {
-		return _student.getInfo();
+		return _student.getFullName();
+	}
+
+	public Student getStudent() {
+		return _student;
 	}
 }
