@@ -16,7 +16,7 @@ public class SeminarDetails {
 					new GregorianCalendar(2018, 3, 8)
 				);
 
-		Seminar seminar = new Seminar(course);
+		Seminar seminar = new Seminar(course, "Room 3", 100);
         seminar.enrolStudent(s1);
         seminar.enrolStudent(s2);
 

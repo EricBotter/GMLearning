@@ -25,9 +25,4 @@ public class BasicRenderer extends Renderer {
 	String getStudentLine(Student student) {
 		return student.getFullName() + ", ";
 	}
-
-	@Override
-	String getLastStudentLine(Student student) {
-		return student.getFullName();
-	}
 }

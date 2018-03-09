@@ -35,10 +35,4 @@ public class CsvRenderer extends Renderer {
 	String getStudentLine(Student student) {
 		return student.getName() + ";" + student.getSurname() + "\n";
 	}
-
-	@Override
-	String getLastStudentLine(Student student) {
-		return getLastStudentLine(student);
-	}
-	
 }

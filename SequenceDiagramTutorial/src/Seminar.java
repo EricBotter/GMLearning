@@ -10,8 +10,10 @@ public class Seminar {
 	private String _location;
 	private int _seatsLeft;
 
-	public Seminar(Course course) {
+	public Seminar(Course course, String location, int seatsLeft) {
 		_course = course;
+		_location = location;
+		_seatsLeft = seatsLeft;
 		_enrollments = new ArrayList<>();
 	}
 
@@ -51,8 +53,13 @@ public class Seminar {
 				.collect(Collectors.toList());
 	}
 
-    public void enrolStudent(Student student) {
-        Enrollment enrollment = new Enrollment(student);
-        _enrollments.add(enrollment);
+    public boolean enrolStudent(Student student) {
+    	if (_seatsLeft > 0) {
+	        Enrollment enrollment = new Enrollment(student);
+	        _enrollments.add(enrollment);
+	        _seatsLeft--;
+	        return true;
+    	}
+    	return false;
     }
 }

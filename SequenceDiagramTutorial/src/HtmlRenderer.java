@@ -27,10 +27,4 @@ public class HtmlRenderer extends Renderer {
 	String getStudentLine(Student student) {
 		return "\t\t<li>" + student.getFullName() + "</li>\n";
 	}
-
-	@Override
-	String getLastStudentLine(Student student) {
-		return getStudentLine(student);
-	}
-	
 }
