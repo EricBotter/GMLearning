@@ -1,4 +1,4 @@
-package refactoring;
+package refactoring.introduceparameterobject;
 
 import java.util.Date;
 
