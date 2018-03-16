@@ -1,23 +1,22 @@
 package refactoring.change_bidirectional_association_to_unidirectional;
 
+import java.util.Iterator;
+
 public class Order {
-	private Customer _customer;
 	private int _grossPrice;
 
 	public Customer getCustomer() {
-		return _customer;
-	}
-
-	public void setCustomer(Customer arg) {
-		if (_customer != null)
-			_customer.friendOrders().remove(this);
-		_customer = arg;
-		if (_customer != null)
-			_customer.friendOrders().add(this);
+		Iterator<Customer> iter = Customer.getInstances().iterator();
+		while (iter.hasNext()) {
+			Customer each = iter.next();
+			if (each.containsOrder(this))
+				return each;
+		}
+		return null;
 	}
 	
-	double getDiscountedPrice() {
-		return getGrossPrice() * (1 - _customer.getDiscount());
+	double getDiscountedPrice(Customer customer) {
+		return getGrossPrice() * (1 - customer.getDiscount());
 	}
 
 	private int getGrossPrice() {
