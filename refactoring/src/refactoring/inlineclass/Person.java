@@ -2,17 +2,30 @@ package refactoring.inlineclass;
 
 public class Person {
 	private String _name;
-	final TelephoneNumber _officeTelephone = new TelephoneNumber();
+	private String _areaCode;
+	private String _number;
 
 	public String getName() {
 		return _name;
 	}
 	
 	public String getTelephoneNumber() {
-		return _officeTelephone.getTelephoneNumber();
+		return "(" + getAreaCode() + ") " + getNumber();
 	}
-
-	public TelephoneNumber getOfficeTelephone() {
-		return _officeTelephone;
+	
+	public String getAreaCode() {
+		return _areaCode;
+	}
+	
+	public void setAreaCode(String arg) {
+		_areaCode = arg;
+	}
+	
+	public String getNumber() {
+		return _number;
+	}
+	
+	public void setNumber(String arg) {
+		_number = arg;
 	}
 }
