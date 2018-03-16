@@ -6,7 +6,7 @@ public abstract class EmployeeType {
     static final int MANAGER = 2;
     
     public abstract int getTypeCode();
-    public abstract int extraAmount();
+    public abstract int payAmount(Employee e);
 }
 
 class Engineer extends EmployeeType {
@@ -16,8 +16,8 @@ class Engineer extends EmployeeType {
 	}
 
 	@Override
-	public int extraAmount() {
-		return  0;
+	public int payAmount(Employee e) {
+		return e.getMonthlySalary();
 	}
 }
 
@@ -34,8 +34,8 @@ class Manager extends EmployeeType {
 	}
 
 	@Override
-	public int extraAmount() {
-		return _bonus;
+	public int payAmount(Employee e) {
+		return e.getMonthlySalary() + _bonus;
 	}
 }
 class Salesman extends EmployeeType {
@@ -51,7 +51,7 @@ class Salesman extends EmployeeType {
 	}
 
 	@Override
-	public int extraAmount() {
-		return _commission;
+	public int payAmount(Employee e) {
+		return e.getMonthlySalary() + _commission;
 	}
 }

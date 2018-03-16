@@ -11,10 +11,14 @@ public class Employee {
     }
     
     public int payAmount() {
-    	return _monthlySalary + _type.extraAmount();
+    	return _type.payAmount(this);
     }
 
 	public EmployeeType getType() {
 		return _type;
+	}
+	
+	public int getMonthlySalary() {
+		return _monthlySalary;
 	}
 }
