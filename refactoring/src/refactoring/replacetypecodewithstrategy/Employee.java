@@ -21,4 +21,19 @@ public class Employee {
 	public int getMonthlySalary() {
 		return _monthlySalary;
 	}
+	
+	public static Employee newEngineer(int monthlySalary) {
+		Engineer type = new Engineer();
+		return new Employee(monthlySalary, type);
+	}
+	
+	public static Employee newSalesman(int monthlySalary, int commission) {
+		Salesman type = new Salesman(commission);
+		return new Employee(monthlySalary, type);
+	}
+
+	public static Employee newManager(int monthlySalary, int bonus) {
+		Manager  type = new Manager(bonus);
+		return new Employee(monthlySalary, type);
+	}
 }
