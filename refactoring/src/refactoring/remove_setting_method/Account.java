@@ -2,20 +2,13 @@ package refactoring.remove_setting_method;
 
 public class Account {
 
-	private String _id;
-	
-	protected Account() {
-	}
+	private final String _id;
 	
 	Account(String id) {
-		setId(id);
+		_id = id;
 	}
 
 	public String getId() {
 		return _id;
-	}
-
-	public void setId(String id) {
-		_id = id;
 	}
 }

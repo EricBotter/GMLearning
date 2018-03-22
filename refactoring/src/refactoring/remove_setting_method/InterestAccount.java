@@ -4,7 +4,7 @@ public class InterestAccount extends Account {
 	private final double _interestRate;
 	
 	public InterestAccount(String id, double rate) {
-		setId(id);
+		super(id);
 		_interestRate = rate;
 	}
 
