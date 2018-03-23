@@ -1,4 +1,4 @@
-package refactoring;
+package refactoring.extract_class;
 
 public class TelephoneNumber {
 
